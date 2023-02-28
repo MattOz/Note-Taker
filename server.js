@@ -1,21 +1,21 @@
 const express = require('express');
-const db = require('./db/db.json');
-const path = require('path');
-const { clog } = require('./middleware/clog');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const notes = require('./db/notes');
+const path = require('path');
+
+const { clog } = require('./middleware/clog');
 app.use(clog);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// app.get("/", (req,res)=>{
-//     res.json(db)
-// })
-
-app.get('/api/db', (req, res) => res.json(db));
+app.get('/api/notes', (req, res) => {
+  console.info(`${req.method} request received to get reviews`);
+  return res.status(200).json(notes)
+});
 
 // GET route for homepage
 app.get('/', (req, res) =>
