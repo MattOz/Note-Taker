@@ -1,14 +1,7 @@
 [
     {
-        "title":"Note 1",
-        "text":"Note text"
-    },
-    {
-        "title":"Note 2",
-        "text":"Note text"
-    },
-    {
-        "title":"Note 3",
-        "text":"Note text"
+        "title": "Sample Note",
+        "text": "Sample note text",
+        "id": "53fe"
     }
 ]
